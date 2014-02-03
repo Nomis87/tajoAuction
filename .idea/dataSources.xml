@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="2678851186">
+    <data-source source="LOCAL" name="OpenShift_TajoAuction" product="PostgreSQL" version="9.2.4" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.3 JDBC4.1 (build 1100)" uuid="3880ee3e-b3fe-4868-9b50-a51c4a5c751e">
+      <identifier-quote-string>&quot;</identifier-quote-string>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1/tajoauction</jdbc-url>
+      <user-name>adminnpayxyl</user-name>
+      <user-password>dffddffbdfcddfe8dfccdf9edf92df93dffedfd2df9bdfc3</user-password>
+      <schema-pattern>tajoauction.public</schema-pattern>
+      <libraries>
+        <library>
+          <url>file://F:/Development/jdbcDriver/postgresql-9.3-1100.jdbc41.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+  </component>
+</project>
+

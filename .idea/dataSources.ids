@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="OpenShift_TajoAuction" product="PostgreSQL" version="9.2.4" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.3 JDBC4.1 (build 1100)" uuid="3880ee3e-b3fe-4868-9b50-a51c4a5c751e">
+    <identifier-quote-string>&quot;</identifier-quote-string>
+    <synchronize>true</synchronize>
+    <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+    <jdbc-url>jdbc:postgresql://127.0.0.1/tajoauction</jdbc-url>
+    <user-name>adminnpayxyl</user-name>
+    <user-password>dffddffbdfcddfe8dfccdf9edf92df93dffedfd2df9bdfc3</user-password>
+    <schema-pattern>tajoauction.public</schema-pattern>
+    <libraries>
+      <library>
+        <url>file://F:/Development/jdbcDriver/postgresql-9.3-1100.jdbc41.jar</url>
+      </library>
+    </libraries>
+    <schema name="public" catalog="tajoauction"/>
+    <table name="appointment" schema="public" catalog="tajoauction" type="TABLE">
+      <column name="id" sqlType="int4" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="timestamp" length="29" precision="6" nullable="false" jdbcType="93"/>
+      <column name="updated_at" sqlType="timestamp" length="29" precision="6" nullable="false" jdbcType="93"/>
+      <column name="category" sqlType="int2" length="5" precision="0" nullable="false" jdbcType="5"/>
+      <primary-key name="appointment_pkey" columns="id"/>
+      <exported-key name="auction_appointment" table="auction" schema="public" catalog="tajoauction" columns="appointment"/>
+    </table>
+    <table name="auction" schema="public" catalog="tajoauction" type="TABLE">
+      <column name="id" sqlType="int4" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="timestamp" length="29" precision="6" nullable="false" jdbcType="93"/>
+      <column name="updated_at" sqlType="timestamp" length="29" precision="6" nullable="false" jdbcType="93"/>
+      <column name="start_time" sqlType="timestamp" length="29" precision="6" nullable="true" jdbcType="93"/>
+      <column name="end_time" sqlType="timestamp" length="29" precision="6" nullable="true" jdbcType="93"/>
+      <column name="status" sqlType="int2" length="5" precision="0" nullable="false" jdbcType="5" def="MA=="/>
+      <column name="start_price" sqlType="money" length="2147483647" precision="0" nullable="false" jdbcType="8" def="MA=="/>
+      <column name="appointment" sqlType="int4" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="length" sqlType="int4" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="auction_pkey" columns="id"/>
+      <foreign-key name="auction_appointment" columns="appointment" ref-table="appointment" ref-schema="public" ref-catalog="" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <exported-key name="auction" table="bid" schema="public" catalog="tajoauction" columns="auction"/>
+    </table>
+    <table name="bid" schema="public" catalog="tajoauction" type="TABLE">
+      <column name="id" sqlType="int4" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="created_at" sqlType="timestamp" length="29" precision="6" nullable="false" jdbcType="93"/>
+      <column name="updated_at" sqlType="timestamp" length="29" precision="6" nullable="false" jdbcType="93"/>
+      <column name="value" sqlType="money" length="2147483647" precision="0" nullable="false" jdbcType="8"/>
+      <column name="user" sqlType="int4" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="auction" sqlType="int4" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="bid_pkey" columns="id"/>
+      <foreign-key name="auction" columns="auction" ref-table="auction" ref-schema="public" ref-catalog="" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="user" columns="user" ref-table="user" ref-schema="public" ref-catalog="" ref-columns="id" update-rule="1" delete-rule="1" deferrability="2"/>
+    </table>
+    <table name="user" schema="public" catalog="tajoauction" type="TABLE">
+      <column name="id" sqlType="int4" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="username" sqlType="varchar" length="45" precision="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="varchar" length="120" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="user_pkey" columns="id"/>
+      <exported-key name="user" table="bid" schema="public" catalog="tajoauction" columns="user"/>
+    </table>
+  </data-source>
+</component>
